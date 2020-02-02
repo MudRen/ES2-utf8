@@ -7,10 +7,7 @@
 
 □ MudOS / FluffOS
 
-你可以用 FluffOS 来运行这个 mudlib。这里是我修改过的一个版本，可以在 Linux 
-以及 Mac OS X 上运行。
-
-https://github.com/floatinghotpot/fluffos
+你可以用 FluffOS v2019 来运行这个 mudlib : https://github.com/fluffos/fluffos
 
 □ 档案目录
 
@@ -48,4 +45,3 @@ https://github.com/floatinghotpot/fluffos
 /u    这是巫师们的工作目录(Home directories)，最好也常常备份。
 
 感谢原作者 Annihilator (06/15/95) 为中文 MUD 的普及做出的卓越贡献。
-

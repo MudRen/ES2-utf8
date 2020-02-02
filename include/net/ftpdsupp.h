@@ -53,7 +53,7 @@ int check_access(string name)
 
 #ifdef GUEST_WIZARD_FTP
     // TMI-2 allows those wizards w/o directories to log in
-    file = PDATA_DIR + name[0..0] + "/" + name + SAVE_EXTENSION;
+    file = PDATA_DIR + name[0..0] + "/" + name + __SAVE_EXTENSION__;
     return ( file_exists( file ) &&
            ( sscanf( read_file( file ), "%*swizard 1%*s" ) == 2 ) );
 #else
