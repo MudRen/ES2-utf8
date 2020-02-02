@@ -22,7 +22,7 @@ object find_body(string name);
 int check_legal_id(string arg);
 int check_legal_name(string arg);
 
-void create() 
+void create()
 {
         seteuid(getuid());
         set("channel_id", "连线精灵");
@@ -70,7 +70,7 @@ private void get_id(string arg, object ob)
                 ppl = find_body(arg);
         // Only allow reconnect an interactive player when MAX_USERS exceeded.
                 if( !ppl || !interactive(ppl) ) {
-                        write("对不起，" + MUD_NAME + 
+                        write("对不起，" + MUD_NAME +
 "的使用者已经太多了，请待会再来。\n");
                         destruct(ob);
                         return;
@@ -79,13 +79,13 @@ private void get_id(string arg, object ob)
 #endif
 
 //        if( wiz_level(arg) < wiz_lock_level ) {
-//                write("对不起，" + MUD_NAME + "目前限制巫师等级 " + 
+//                write("对不起，" + MUD_NAME + "目前限制巫师等级 " +
 //WIZ_LOCK_LEVEL
 //                        + " 以上的人才能连线。\n");
 //                destruct(ob);
 //                return;
 //        }
-        
+
         if( (string)ob->set("id", arg) != arg ) {
                 write("Failed setting user name.\n");
                 destruct(ob);
@@ -96,20 +96,20 @@ private void get_id(string arg, object ob)
                 // If guest, let them create the character.
                 confirm_id("Yes", ob);
                 return;
-        } else if( file_size(ob->query_save_file() + __SAVE_EXTENSION__) >= 0 
+        } else if( file_size(ob->query_save_file() + __SAVE_EXTENSION__) >= 0
 ) {
                 if( ob->restore() ) {
                         write("请输入密码：");
                         input_to("get_passwd", 1, ob);
                         return;
                 }
-                write("您的人物储存挡出了一些问题，请利用 guest 
+                write("您的人物储存挡出了一些问题，请利用 guest
 人物通知巫师处理。\n");
                 destruct(ob);
                 return;
         }
 
-        write("使用 " + (string)ob->query("id") + " 
+        write("使用 " + (string)ob->query("id") + "
 这个名字将会创造一个新的人物，您确定吗(y/n)？");
         input_to("confirm_id", ob);
 }
@@ -134,7 +134,7 @@ private void get_passwd(string pass, object ob)
                         reconnect(ob, user);
                         return;
                 }
-                
+
 write("您要将另一个连线中的相同人物赶出去，取而代之吗？(y/n)");
                 input_to("confirm_relogin", ob, user);
                 return;
@@ -142,7 +142,7 @@ write("您要将另一个连线中的相同人物赶出去，取而代之吗？(
 
         if( objectp(user = make_body(ob)) ) {
                 if( user->restore() ) {
-                        log_file( "USAGE", sprintf("%s loggined from %s 
+                        log_file( "USAGE", sprintf("%s loggined from %s
 (%s)\n", user->query("name"),
                                 query_ip_name(ob), ctime(time()) ) );
                         enter_world(ob, user);
@@ -160,11 +160,11 @@ private void confirm_relogin(string yn, object ob, object user)
         object old_link;
 
         if( yn=="" ) {
-                
+
 write("您要将另一个连线中的相同人物赶出去，取而代之吗？(y/n)");
                 input_to("confirm_relogin", ob, user);
                 return;
-        }       
+        }
 
         if( yn[0]!='y' && yn[0]!='Y' ) {
                 write("好吧，欢迎下次再来。\n");
@@ -173,7 +173,7 @@ write("您要将另一个连线中的相同人物赶出去，取而代之吗？(
         } else {
                 tell_object(user, "有人从别处( " + query_ip_number(ob)
                         + " )连线取代你所控制的人物。\n");
-                log_file( "USAGE", sprintf("%s replaced by %s (%s)\n", 
+                log_file( "USAGE", sprintf("%s replaced by %s (%s)\n",
 user->query("name"),
                         query_ip_name(ob), ctime(time()) ) );
         }
@@ -185,7 +185,7 @@ user->query("name"),
                 destruct(old_link);
         }
 
-        reconnect(ob, user);    
+        reconnect(ob, user);
 }
 
 private void confirm_id(string yn, object ob)
@@ -194,7 +194,7 @@ private void confirm_id(string yn, object ob)
                 write("使用这个名字将会创造一个新的人物，您确定吗(y/n)？");
                 input_to("confirm_id", ob);
                 return;
-        }       
+        }
 
         if( yn[0]!='y' && yn[0]!='Y' ) {
                 write("好吧，那麽请重新输入您的英文名字：");
@@ -295,7 +295,7 @@ private void get_gender(string gender, object ob, object user)
                 return;
         }
 
-        log_file( "USAGE", sprintf("%s was created from %s (%s)\n", 
+        log_file( "USAGE", sprintf("%s was created from %s (%s)\n",
 user->query("id"),
                 query_ip_name(ob), ctime(time()) ) );
         init_new_player(user);
@@ -310,7 +310,7 @@ object make_body(object ob)
 
         user = new(ob->query("body"));
         if(!user) {
-                
+
 write("现在可能有人正在修改使用者物件的程式，无法进行复制。\n");
                 write(err+"\n");
                 return 0;
@@ -338,7 +338,7 @@ private init_new_player(object user)
         user->set("spi", 30/*10 + random(21)*/);
         user->set("per", 30/*10 + random(21)*/);
         user->set("kar", 30/*10 + random(21)*/);
-	user->set("gift_tag", 1);
+        user->set("gift_tag", 1);
 
         user->set("food", user->max_food_capacity());
         user->set("water", user->max_water_capacity());
@@ -358,24 +358,24 @@ varargs void enter_world(object ob, object user, int silent)
         write("目前权限：" + wizhood(user) + "\n");
         user->setup();
 
-        // In case of new player, we save them here right aftre setup 
+        // In case of new player, we save them here right aftre setup
         // compeleted.
         user->save();
         ob->save();
 
-	// check if need allot gift
-	if ( user->query("gift_tag") )
-		if ( user->query("age") >= 15) {
-        		user->set("str", 10 + random(21));
-        		user->set("cps", 10 + random(21));
-        		user->set("int", 10 + random(21));
-        		user->set("cor", 10 + random(21));
-        		user->set("con", 10 + random(21));
-        		user->set("spi", 10 + random(21));
-        		user->set("per", 10 + random(21));
-        		user->set("kar", 10 + random(21));
-        		user->delete("gift_tag");
-			}
+        // check if need allot gift
+        if ( user->query("gift_tag") )
+                if ( user->query("age") >= 15) {
+                        user->set("str", 10 + random(21));
+                        user->set("cps", 10 + random(21));
+                        user->set("int", 10 + random(21));
+                        user->set("cor", 10 + random(21));
+                        user->set("con", 10 + random(21));
+                        user->set("spi", 10 + random(21));
+                        user->set("per", 10 + random(21));
+                        user->set("kar", 10 + random(21));
+                        user->delete("gift_tag");
+                        }
 
         cloth = new("/obj/cloth");
         cloth->move(user);
@@ -384,7 +384,7 @@ varargs void enter_world(object ob, object user, int silent)
         if( !silent ) {
                 cat(MOTD);
                 if( ob->query("new_mail") ) {
-                        write( GRN + 
+                        write( GRN +
 "\n杜宽告诉你：有您的信！请到驿站来一趟...\n\n" + NOR);
                         ob->set("new_mail", 0);
                 }
@@ -400,12 +400,12 @@ varargs void enter_world(object ob, object user, int silent)
                         startroom = START_ROOM;
                         user->set("startroom", START_ROOM);
                 }
-                tell_room(startroom, user->query("name") + 
+                tell_room(startroom, user->query("name") +
 "连线进入这个世界。\n",
                         ({user}));
         }
         CHANNEL_D->do_channel( this_object(), "sys",
-                sprintf("%s由%s连线进入。", user->name(), 
+                sprintf("%s由%s连线进入。", user->name(),
 query_ip_name(user)) );
         UPDATE_D->check_user(user);
 }
@@ -418,12 +418,12 @@ varargs void reconnect(object ob, object user, int silent)
 
         user->reconnect();
         if( !silent ) {
-                tell_room(environment(user), user->query("name") + 
+                tell_room(environment(user), user->query("name") +
 "重新连线回到这个世界。\n",
                 ({user}));
         }
         CHANNEL_D->do_channel( this_object(), "sys",
-                sprintf("%s由%s重新连线进入。", user->query("name"), 
+                sprintf("%s由%s重新连线进入。", user->query("name"),
 query_ip_name(user)) );
         UPDATE_D->check_user(user);
 }
@@ -433,7 +433,7 @@ int check_legal_id(string id)
         int i;
 
         i = strlen(id);
-        
+
         if( (strlen(id) < 3) || (strlen(id) > 12 ) ) {
                 write("对不起，你的英文名字必须是 3 到 12 个英文字母。\n");
                 return 0;
@@ -452,7 +452,7 @@ int check_legal_name(string name)
         int i;
 
         i = strlen(name);
-        
+
         if( (strlen(name) < 2) || (strlen(name) > 12 ) ) {
                 write("对不起，你的中文名字必须是 1 到 6 个中文字。\n");
                 return 0;
@@ -498,4 +498,3 @@ int set_wizlock(int level)
         wiz_lock_level = level;
         return 1;
 }
- 

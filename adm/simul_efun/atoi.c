@@ -2,8 +2,8 @@
 
 int atoi(string str)
 {
-	int v;
+    int v;
 
-	if( !stringp(str) || !sscanf(str, "%d", v) ) return 0;
-	return v;
+    if( !stringp(str) || !sscanf(str, "%d", v) ) return 0;
+    return v;
 }

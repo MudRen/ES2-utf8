@@ -19,4 +19,3 @@ string gender_pronoun(string sex)
                 default: return "它";
         }
 }
-

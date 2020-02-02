@@ -31,14 +31,14 @@ mapping emote;
 
 void create()
 {
-	if( !restore() && !mapp(emote) )
-		emote = ([]);
+    if( !restore() && !mapp(emote) )
+        emote = ([]);
 }
 
 int remove()
 {
-	save();
-	return 1;
+    save();
+    return 1;
 }
 
 string query_save_file() { return DATA_DIR + "emoted"; }
@@ -46,99 +46,99 @@ string query_save_file() { return DATA_DIR + "emoted"; }
 // command_hook() of F_COMMAND call this as an alternate command processor.
 int do_emote(object me, string verb, string arg)
 {
-	string str, my_gender, target_gender, msg_postfix;
-	object target;
-	string arg1;
-	int chat_flag;
+    string str, my_gender, target_gender, msg_postfix;
+    object target;
+    string arg1;
+    int chat_flag;
 
-	if( !environment(me) ) return 0;
+    if( !environment(me) ) return 0;
 
-	chat_flag = 0;
-	if (verb == "chat*" && arg != "") {
-        	if (sscanf(arg , "%s %s", verb, arg1)==0) 
-         	       verb = arg;
-		arg = arg1;
-		chat_flag = 1;
-	}
+    chat_flag = 0;
+    if (verb == "chat*" && arg != "") {
+            if (sscanf(arg , "%s %s", verb, arg1)==0)
+                    verb = arg;
+        arg = arg1;
+        chat_flag = 1;
+    }
 
 
-	if ( !mapp(emote) || undefinedp(emote[verb]) ) return 0;
+    if ( !mapp(emote) || undefinedp(emote[verb]) ) return 0;
 
-	
-	// Determine the pattern to be searched and the target.
-	if ( stringp(arg) && arg != "" ) {
-		target = present(arg, environment(me));
-		if(!objectp(target)) return 0;
-		if( !target->is_character() )
-			return notify_fail("你要对谁做这个动作？\n"); 
-		target_gender = target->query("gender");
-		if( target==me ) {
-			msg_postfix = "_self";
-			target = 0;
-		} else msg_postfix = "_target";
-	} else msg_postfix = "";
 
-	my_gender = me->query("gender");
+    // Determine the pattern to be searched and the target.
+    if ( stringp(arg) && arg != "" ) {
+        target = present(arg, environment(me));
+        if(!objectp(target)) return 0;
+        if( !target->is_character() )
+            return notify_fail("你要对谁做这个动作？\n");
+        target_gender = target->query("gender");
+        if( target==me ) {
+            msg_postfix = "_self";
+            target = 0;
+        } else msg_postfix = "_target";
+    } else msg_postfix = "";
 
-	if( stringp(str = emote[verb]["myself" + msg_postfix]) ) {
-		str = replace_string(str, "$N", me->name());
-		str = replace_string(str, "$P", gender_self(my_gender));
-		if( objectp(target) ) {
-			str = replace_string(str, "$n", target->name());
-			str = replace_string(str, "$p", gender_pronoun(target_gender));
-		}
-		message("emote", CYN + str + NOR, me);
-	}
-	if( objectp(target) && stringp(str = emote[verb]["target"]) ) {
-		str = replace_string(str, "$N", me->name());
-		str = replace_string(str, "$P", gender_pronoun(my_gender));
-		str = replace_string(str, "$n", target->name());
-		str = replace_string(str, "$p", gender_self(target_gender));
-		message("emote", CYN + str + NOR, target);
-	}
-	if( stringp(str = emote[verb]["others"+msg_postfix]) ) {
-		str = replace_string(str, "$N", me->name());
-		str = replace_string(str, "$P", gender_pronoun(my_gender));
-		if( objectp(target) ) {
-			str = replace_string(str, "$n", target->name());
-			str = replace_string(str, "$p", gender_pronoun(target_gender));
-		}
-		if (!chat_flag)
-		message("emote", CYN + str + NOR, environment(me), ({me, target}));
-		else {
+    my_gender = me->query("gender");
+
+    if( stringp(str = emote[verb]["myself" + msg_postfix]) ) {
+        str = replace_string(str, "$N", me->name());
+        str = replace_string(str, "$P", gender_self(my_gender));
+        if( objectp(target) ) {
+            str = replace_string(str, "$n", target->name());
+            str = replace_string(str, "$p", gender_pronoun(target_gender));
+        }
+        message("emote", CYN + str + NOR, me);
+    }
+    if( objectp(target) && stringp(str = emote[verb]["target"]) ) {
+        str = replace_string(str, "$N", me->name());
+        str = replace_string(str, "$P", gender_pronoun(my_gender));
+        str = replace_string(str, "$n", target->name());
+        str = replace_string(str, "$p", gender_self(target_gender));
+        message("emote", CYN + str + NOR, target);
+    }
+    if( stringp(str = emote[verb]["others"+msg_postfix]) ) {
+        str = replace_string(str, "$N", me->name());
+        str = replace_string(str, "$P", gender_pronoun(my_gender));
+        if( objectp(target) ) {
+            str = replace_string(str, "$n", target->name());
+            str = replace_string(str, "$p", gender_pronoun(target_gender));
+        }
+        if (!chat_flag)
+        message("emote", CYN + str + NOR, environment(me), ({me, target}));
+        else {
 
 message("channel:chat", BLU +"【闲聊】"+ str + NOR, users());
-        
 
-		}
-	}
 
-	if( objectp(target) ) target->relay_emote(me, verb);
+        }
+    }
 
-	return 1;
+    if( objectp(target) ) target->relay_emote(me, verb);
+
+    return 1;
 }
 
 int set_emote(string pattern, mapping def)
 {
-	emote[pattern] = def;
-	save();
-	return 1;
+    emote[pattern] = def;
+    save();
+    return 1;
 }
 
 int delete_emote(string pattern)
 {
-	map_delete(emote, pattern);
-	save();
-	return 1;
+    map_delete(emote, pattern);
+    save();
+    return 1;
 }
 
 mapping query_emote(string pattern)
 {
-	if( !undefinedp(emote[pattern]) ) return emote[pattern];
-	else return ([]);
+    if( !undefinedp(emote[pattern]) ) return emote[pattern];
+    else return ([]);
 }
 
 string *query_all_emote()
 {
-	return keys(emote);
+    return keys(emote);
 }
