@@ -131,18 +131,12 @@ void revive()
 
 void kill_ob(object ob)
 {
-     int i;
         set_temp("apply/attack", 70);
         set_temp("apply/dodge", 50);
         set_temp("apply/parry", 60);
         set_temp("apply/damage", 20);
         set("title", "桐柏山妖  山药蛋");
         set("nickname", HIR "好大的山药蛋" NOR);
-                HIY "采药老者眼放异光，说道：你真的不喜欢山药蛋吗？
-\n\n"
-                "沉吟半响道：既然如此，老头子今天豁出去了，纳命来！\n" NOR
-                "\n",
-                environment(), this_object() );
         set("pursuer", 1);
         set("attitude", "aggressive");
         set("vendetta/authority", 1);
@@ -155,28 +149,13 @@ void kill_ob(object ob)
         }) );
         set("bellicosity", 10000);
         set("combat_exp", 50000);
-        ob = all_inventory(environment());
-        for(i=sizeof(ob)-1; i>=0; i--) {
-                if( !ob[i]->is_character() || ob[i]==this_object() ) continue;
-                kill_ob(ob[i]);
-                ob[i]->fight_ob(this_object());
-        }
-//        carry_object(__DIR__"obj/tomatoo");
+
         set("revealed", 1);
-        return 0;
-
-
+        fight_ob(ob);
 }
+
 void defeated_enemy(object ob)
 {
         say(CYN "老者作出一个 V 字型的手势，说道：我赢了！" NOR);
         remove_killer(ob);
-}      
-
-
-
-
-
-
-
-
+}

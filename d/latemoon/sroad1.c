@@ -9,8 +9,8 @@ void create()
 LONG
         );
         set("exits", ([ /* sizeof() == 1 */
-         "north: __DIR__"park/moondoor",
-         "southeast" :__DIR__"sroad2", 
+         "north" : __DIR__"park/moondoor",
+         "southeast" :__DIR__"sroad2",
         ]));
         set("outdoors", "latemoon");
 

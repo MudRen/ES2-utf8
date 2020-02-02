@@ -20,7 +20,7 @@ LONG
 	//	"shield": "这书架上好象摆着八本书，你可以将它们中的某一本抽(take)出来，\n或将抽出来的书放回去(putback)。\n",
 		"shield": look_shield(),
 	]) );
-	
+
 	set("no_clean_up", 0);
 
 	setup();
@@ -35,16 +35,15 @@ void init()
 
 int do_takeout(string arg)
 {
-	object room;
 	string num;
-	
+
 	if( !arg || arg=="" )
 		return notify_fail("你要拿什么？\n");
 	if( arg=="book" ) {
 	write("你想拿第几本石书？\n");
 	return 1;
 	}
-	
+
 	if( sscanf(arg, "book %s", num)==1 ) {
 	    if( num <"0" || num >"12" ){
 	    	return notify_fail("有多少本书，你仔细点清楚了！\n");
@@ -70,19 +69,13 @@ int do_takeout(string arg)
 		    break;
 		case "6":
 		    break;
-//		    if( (int)query("key")==3 ){
-//		    	if( room = find_object("/d/village/lordhouse2") )
-		   
 		    }
 	    }
-	}
 
 	return 1;
 }
 
 string look_shield()
 {
-//	string book[16];
-	int iCount;
 	return "are this true?\n";
 }
