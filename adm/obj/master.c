@@ -231,7 +231,7 @@ string error_handler( mapping error, int caught )
         this_player(1)->set_temp("error", error);
         tell_object(this_player(1), standard_trace(error, caught));
     }
-
+    efun::write_file(LOG_DIR "error", sprintf("[%s]%O\n", ctime(time())[4..18], error));
     // whatever we return goes to the debug.log
     return standard_trace(error, caught);
 }

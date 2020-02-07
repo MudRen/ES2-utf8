@@ -1,2 +1,2 @@
 #/adm/daemons/emoted.c
-emote ([])
+emote (["lazy":(["myself_target":"$P對著$n擺出一付懶得理$p的表情.","others":"$N覺得整個人懶懶的, 提不起精神來.","others_self":"$N全身懶洋洋的, 好像一團爛泥巴.","others_target":"$N對$n擺出一付懶得理$p的表情.","target":"$N對$p擺出一付懶得理$p的樣子.","updated":"grain","myself_self":"$P懶的快要倒在地上了.","myself":"$P覺得整個人懶懶的, 提不起精神來.",])])

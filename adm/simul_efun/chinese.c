@@ -11,21 +11,18 @@ string to_chinese(string str)
 
 int is_chinese(string str)
 {
-  int i;
-  int len = strlen(str);
-  if(len >= 2) {
-    for(i=0; i<len; i++) {
-      // GBK or BIG5
-      if(str[i] >= 160 && str[i] < 255) return 1;
-      // UTF8
-      if ((str[i] & 0xC0) == 0x80) return 1;
-    }
-  }
-  return 0;
+    if (!str)
+        return 0;
+
+    // str = remove_ansi(str);
+
+    return pcre_match(str, "^\\p{Han}+$");
 }
 
 int utf8_strlen(string str)
 {
+  return strlen(str);
+/*
   int i;
   int n = 0;
   int len = strlen(str);
@@ -33,4 +30,5 @@ int utf8_strlen(string str)
     if ((str[i] & 0xC0) != 0x80) n++;
   }
   return n;
+*/
 }
