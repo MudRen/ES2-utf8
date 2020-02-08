@@ -8,7 +8,7 @@
  * 93-07-30 Grendel@tmi-2 Removed defines, replaced with inetd.h
  */
  
-#include <config.h>
+#include <net/config.h>
 #include <net/daemons.h>
 #include <net/socket.h>
 #include <net/inetd.h>
@@ -65,7 +65,7 @@ possible_close(int id)
 string
 read_socket(int id)
 {
-   int error;
+// int error;
 
    if (!sockets[id] || ((previous_object() != this_object())
       && (previous_object() != sockets[id]["owner"])))
@@ -299,8 +299,8 @@ open_service(string mud, string svc, string *parms)
  
 void process_incoming(int fd)
 {
-   object ob;
-   int error, l;
+// object ob;
+// int error,l;
    string msg, svc, *parms;
  
    msg = this_object()->read_socket(fd);

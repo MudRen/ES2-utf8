@@ -1,4 +1,3 @@
-
 //	File	:  /adm/daemons/pingd.c
 //	Creator	:  Zazz@WizMud  (4/93)
 //	Updated	:  Watcher@TMI  (4/9/93)  for TMI-2 mudlib and call_out

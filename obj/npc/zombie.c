@@ -46,7 +46,7 @@ void animate(object who, int time)
 
 void dispell()
 {
-        object corpse;
+//      object corpse;
 
         if( environment() ) {
                 say( name() + "缓缓地倒了下来，化为一滩血水。\n");

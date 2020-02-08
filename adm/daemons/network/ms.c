@@ -12,9 +12,9 @@
  * Grendel, 930904  Fixed a bug in mailing to remote groups
  */
 
-#include <config.h>
+#include <net/config.h>
 #include <mailer.h>
-#include <daemons.h>
+#include <net/daemons.h>
 #include <net/daemons.h>
 #include <uid.h>
 
@@ -77,7 +77,7 @@ convert_name(string lname, string lmud)
 void
 remote_mail(string own, string mud, mapping outmsg)
 {
-    string *tmp;
+//  string *tmp;
 
     if (file_name(previous_object()) != MAILER_D)
     return;

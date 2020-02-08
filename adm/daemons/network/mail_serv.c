@@ -7,7 +7,7 @@
 //      rewritten by Descartes of Borg for IIPS
 
 #include <net/daemons.h>
-#include <daemons.h>
+#include <net/daemons.h>
 #include <uid.h>
 #include <post.h>
 
