@@ -87,14 +87,14 @@ int do_emote(object me, string verb, string arg)
             str = replace_string(str, "$n", target->name());
             str = replace_string(str, "$p", gender_pronoun(target_gender));
         }
-        message("emote", CYN + str + NOR, me);
+        message("emote", CYN + str + "\n" NOR, me);
     }
     if( objectp(target) && stringp(str = emote[verb]["target"]) ) {
         str = replace_string(str, "$N", me->name());
         str = replace_string(str, "$P", gender_pronoun(my_gender));
         str = replace_string(str, "$n", target->name());
         str = replace_string(str, "$p", gender_self(target_gender));
-        message("emote", CYN + str + NOR, target);
+        message("emote", CYN + str + "\n" NOR, target);
     }
     if( stringp(str = emote[verb]["others"+msg_postfix]) ) {
         str = replace_string(str, "$N", me->name());
@@ -104,10 +104,10 @@ int do_emote(object me, string verb, string arg)
             str = replace_string(str, "$p", gender_pronoun(target_gender));
         }
         if (!chat_flag)
-        message("emote", CYN + str + NOR, environment(me), ({me, target}));
+        message("emote", CYN + str + "\n" NOR, environment(me), ({me, target}));
         else {
 
-message("channel:chat", BLU +"【闲聊】"+ str + NOR, users());
+message("channel:chat", BLU +"【闲聊】"+ str + "\n" NOR, users());
 
 
         }
