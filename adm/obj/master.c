@@ -5,10 +5,15 @@
 // original from Lil
 // rewritten by Annihilator (11/07/94)
 
-object connect()
+object connect(int port)
 {
     object login_ob;
     mixed err;
+
+    if (port == 5555)
+    {
+        set_encoding("GBK");
+    }
 
     err = catch(login_ob = new(LOGIN_OB));
 
