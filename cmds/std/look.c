@@ -27,7 +27,7 @@ string *per_msg_m = ({
 	"相貌猥琐，看起来不怎么舒服。\n",
 });
 
-void create() { seteuid(getuid()); } 
+void create() { seteuid(getuid()); }
 
 int main(object me, string arg)
 {
@@ -54,10 +54,11 @@ int look_room(object me, object env)
 		write("你的四周灰蒙蒙地一片，什麽也没有。\n");
 		return 1;
 	}
-	str = sprintf( "\n▲ %s - %s\n  %s\n%s",
+	str = sprintf( "\n▲ %s - %s\n    %s\n%s",
 		env->query("short"),
 		file_name(env),
-		replace_string(env->query("long"), "\n", ""),
+		// replace_string(env->query("long"), "\n", ""),
+		env->query("long"),
 		env->query("outdoors")? NATURE_D->outdoor_room_description() : "" );
 
 	if( mapp(exits = env->query("exits")) ) {
@@ -122,19 +123,19 @@ int look_living(object me, object obj)
 	&&	intp(obj->query("age")) )
 		str += sprintf("%s看起来约%s多岁。\n", pro, chinese_number(obj->query("age") / 10 * 10));
 
-	
+
 	// 查看相貌
 	if (me == obj) {
 		if ((int)me->query("age") > 14)
 			str += sprintf("你很象镜子中的自己啊!\n");
-		    else 
+		    else
 			str += sprintf("你才十四岁啊，有什么好看的？\n");
 		}
 	    else if((string)obj->query("race")=="人类"){
 		if ((int)obj->query("age") < 15)
 			str += sprintf("十四岁的小孩都是天天真真的模样。\n");
 		    else {
-			personal = (int)obj->query("per");		
+			personal = (int)obj->query("per");
 			if (obj->query("gender") == "女性") {
 				if (personal >= 30)
 					str += sprintf(pro + per_msg[0]);
@@ -158,7 +159,7 @@ int look_living(object me, object obj)
 					str += sprintf(pro+ per_msg_m[2]);
 				   else if (personal >= 13)
 					str += sprintf(pro + per_msg_m[3]);
-				    else 
+				    else
 					str += sprintf(pro + per_msg_m[4]);
 				}
 			}
@@ -166,9 +167,9 @@ int look_living(object me, object obj)
 	// If we both has family, check if we have any relations.
 	if( obj!=me
 	&&	mapp(fam = obj->query("family"))
-	&&	mapp(my_fam = me->query("family")) 
+	&&	mapp(my_fam = me->query("family"))
 	&&	fam["family_name"] == my_fam["family_name"] ) {
-	
+
 		if( fam["generation"]==my_fam["generation"] ) {
 			if( (string)obj->query("gender") == "男性" )
 				str += sprintf( pro + "是你的%s%s。\n",
@@ -215,7 +216,7 @@ int look_living(object me, object obj)
 
 	message("vision", str, me);
 
-	if( obj!=me 
+	if( obj!=me
 	&&	living(obj)
 	&&	random((int)obj->query("bellicosity")/10) > (int)me->query("per") ) {
 		write( obj->name() + "突然转过头来瞪你一眼。\n");
@@ -253,7 +254,7 @@ int look_room_item(object me, string arg)
 			write("※ "+item[arg]);
 		else if( functionp(item[arg]) )
 			write("※ "+(string)(*item[arg])(me));
-			
+
 		return 1;
 	}
 	if( mapp(exits = env->query("exits")) && !undefinedp(exits[arg]) ) {
@@ -272,9 +273,9 @@ int help (object me)
 {
 	write(@HELP
 指令格式: look [<物品>|<生物>|<方向>]
- 
+
 这个指令让你查看你所在的环境、某件物品、生物、或是方向。
- 
+
 HELP
 );
 	return 1;
