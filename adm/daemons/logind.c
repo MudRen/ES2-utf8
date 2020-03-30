@@ -434,7 +434,7 @@ int check_legal_id(string id)
 
         i = strlen(id);
 
-        if( (strlen(id) < 3) || (strlen(id) > 12 ) ) {
+        if( (i < 3) || (i > 12 ) ) {
                 write("对不起，你的英文名字必须是 3 到 12 个英文字母。\n");
                 return 0;
         }
@@ -451,9 +451,9 @@ int check_legal_name(string name)
 {
         int i;
 
-        i = strlen(name);
+        i = strwidth(name);
 
-        if( (strlen(name) < 2) || (strlen(name) > 12 ) ) {
+        if( (i < 2) || (i > 12 ) ) {
                 write("对不起，你的中文名字必须是 1 到 6 个中文字。\n");
                 return 0;
         }

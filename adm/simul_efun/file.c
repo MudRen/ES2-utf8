@@ -28,12 +28,12 @@ void assure_file(string file)
     }
 }
 
-string base_name(object ob)
-{
-    string file;
+// string base_name(object ob)
+// {
+//     string file;
 
-    if( sscanf(file_name(ob), "%s#%*d", file)==2 )
-        return file;
-    else
-        return file_name(ob);
-}
+//     if( sscanf(file_name(ob), "%s#%*d", file)==2 )
+//         return file;
+//     else
+//         return file_name(ob);
+// }
