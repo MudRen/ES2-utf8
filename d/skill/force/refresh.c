@@ -2,7 +2,7 @@
 
 int exert(object me, object target)
 {
-	if( target ) return notify_fail("你只能用内功\收□自己的心神。\n");
+	if( target ) return notify_fail("你只能用内功收□自己的心神。\n");
 
 	if( (int)me->query("force") < 20 )
 		return notify_fail("你的内力不够。\n");

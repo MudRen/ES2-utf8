@@ -1,7 +1,7 @@
 // mercenary.c
 
 inherit NPC;
-inherit F_MERCENARY;
+// inherit F_MERCENARY;
 
 void create()
 {
@@ -40,7 +40,7 @@ void create()
 	map_skill("unarmed", "liuh-ken");
 	map_skill("dodge", "chaos-steos");
 	map_skill("force", "fonxanforce");
-	
+
 	setup();
 
 	carry_object("/obj/longsword")->wield();
@@ -77,4 +77,3 @@ void duty_end()
 	if( home ) return_home(home);
 	else destruct(this_object());
 }
-

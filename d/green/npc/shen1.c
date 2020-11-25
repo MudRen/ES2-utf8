@@ -1,8 +1,8 @@
 inherit NPC;
- 
+
 void give_jade();
 void sell_drug();
- 
+
 void create()
 {
         seteuid(getuid());
@@ -22,29 +22,29 @@ void create()
         carry_object("/obj/cloth")->wear();
         add_money("silver",1);
 }
- 
+
 void init()
 {
         add_action("list_item","list");
         add_action("buy_item","buy");
 }
- 
+
 int list_item()
 {
         write("你看到:\n");
         write("柜子上一堆冥纸和香烛等, 标价 10 文钱. 墙上挂著几把竹扫帚,\n");
-        write("每把 50 文钱. 柜台上摆\著一块木牌, 上面写著:\n");
+        write("每把 50 文钱. 柜台上摆著一块木牌, 上面写著:\n");
         write("棺材: 时价. 没看到的东西问一下掌柜的, 我们应该都有.\n");
         return 1;
 }
- 
+
 int buy_item()
 {
         command("shake");
         command("say 我不卖东西给陌生人!");
         return 1;
 }
- 
+
 void give_jade()
 {
         object ob;
@@ -69,7 +69,7 @@ void give_jade()
            else command("?");
         return;
 }
- 
+
 void sell_drug()
 {
         if (this_player()->query_temp("know_drug")) {
@@ -81,7 +81,7 @@ void sell_drug()
         else command("?");
         return;
 }
- 
+
 int accept_object(object who, object ob)
 {
         object drug;
@@ -107,4 +107,3 @@ int accept_object(object who, object ob)
         }
         return 1;
 }
- 

@@ -11,7 +11,7 @@ void create()
 	else {
 		set("unit", "条");
 		set("long",
-			"这条布条是从一件寿衣上撕下来的，上面密密麻麻写了许\多字。\n");
+			"这条布条是从一件寿衣上撕下来的，上面密密麻麻写了许多字。\n");
 		set("material", "cloth");
 		set("skill", ([
 			"name": 		"spells",		// name of the skill

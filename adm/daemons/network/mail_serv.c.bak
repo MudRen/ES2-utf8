@@ -8,8 +8,8 @@
 
 #include <net/daemons.h>
 #include <net/daemons.h>
-#include <uid.h>
-#include <post.h>
+// #include <uid.h>
+// #include <post.h>
 
 #define log(x) log_file("MS", x)
 #define MS_SAVE "mail-queue"
@@ -17,6 +17,8 @@
 #define AGE_TIME 604800
 #define EOF "%EOF%"
 #define EOT "%EOT%"
+
+#define DIR_POSTAL "/data/postal/"
 
 nosave string upd;
 nosave mapping new_mail_queue, sockets;

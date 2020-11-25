@@ -28,7 +28,7 @@ int accept_order(object me, string verb)
 				command("say 小人家有老母妻小，这个 .... 这个 ....");
 				return 0;
 			case "fight":
-				command("say 小人不会武功\，" + RANK_D->query_respect(me)
+				command("say 小人不会武功，" + RANK_D->query_respect(me)
 					+ "您说笑了。\n");
 				return 0;
 			default:

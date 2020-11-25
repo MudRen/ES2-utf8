@@ -10,7 +10,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("unit", "个");
-		set("long", "一个刻工相刚精细的桃木箱，也许\是用来装首饰用的。\n");
+		set("long", "一个刻工相刚精细的桃木箱，也许是用来装首饰用的。\n");
 		set("value", 300);
 		set("material", "wood");
 	}

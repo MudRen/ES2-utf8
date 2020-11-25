@@ -7,7 +7,7 @@ void create()
 	set_name("仆役", ({ "servant" }) );
 	set("gender", "男性");
 	set("age", 34);
-	set("long", "这个人看起来十分和蔼可亲，看起来不像是会武功\的人。\n");
+	set("long", "这个人看起来十分和蔼可亲，看起来不像是会武功的人。\n");
 
 	set("attitude", "friendly");
 	set("combat_exp", 100);

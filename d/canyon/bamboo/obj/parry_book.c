@@ -3,7 +3,7 @@
 #include <ansi.h>
 
 inherit ITEM;
-inherit F_UNIQUE;
+// inherit F_UNIQUE;
 
 void create()
 {
@@ -31,4 +31,3 @@ LONG
         set("replica_ob", __DIR__"cola");
 	}
 }
-		

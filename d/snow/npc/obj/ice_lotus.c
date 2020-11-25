@@ -3,6 +3,12 @@
 inherit ITEM;
 inherit F_FOOD;
 
+int eat_tonic()
+{
+	// todo 吃补品的实现
+	return 1;
+}
+
 void create()
 {
 	set_name("雪莲", ({ "ice lotus", "lotus" }) );
@@ -11,7 +17,7 @@ void create()
 		set_default_object(__FILE__);
 	else {
 		set("long",
-			"这是一种生长在高山冰雪之中的珍贵药材，据说对修炼内功\的\n"
+			"这是一种生长在高山冰雪之中的珍贵药材，据说对修炼内功的\n"
 			"武林人士颇有帮助。\n");
 		set("unit", "块");
 		set("value", 4500);

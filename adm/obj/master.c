@@ -121,8 +121,19 @@ void log_error(string file, string message)
     else home = LOG_DIR;
 
     // if(this_player(1)) efun::write("编译时段错误：" + message+"\n");
-
-    efun::write_file(home + "log", message);
+    if (strsrch(message, "Warning") == -1)
+    {
+        if (this_player(1))
+        {
+            if (wizardp(this_player(1)))
+                efun::write("编译时段错误：" + message + "\n");
+        }
+        efun::write_file(home + "log_error", message);
+    }
+    else
+    {
+        efun::write_file(home + "log", message);
+    }
 }
 
 // save_ed_setup and restore_ed_setup are called by the ed to maintain

@@ -15,7 +15,7 @@ void create()
 		"mail <某人>               寄信给别人。\n"
 		"forward <信件编号> <某人> 将某封信转寄给别人。\n"
 		"from                      查看信箱中的信件。\n"
-		"read <信件编号>           阅\读一封信件。\n"
+		"read <信件编号>           阅读一封信件。\n"
 		"discard <信件编号>        丢弃一封信件。\n"
 	);
 	set("unit", "个");
@@ -33,7 +33,7 @@ int set_owner(string id)
 
 void init()
 {
-	object ob;
+	// object ob;
 
 	if( this_player() && environment()==this_player() ) {
 		set_owner( (string)this_player()->query("id") );

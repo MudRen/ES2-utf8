@@ -28,6 +28,6 @@ void create()
 
 int accept_fight(object me)
 {
-	command("say 阿弥陀佛！小僧武功\低微，认输便是。\n");
+	command("say 阿弥陀佛！小僧武功低微，认输便是。\n");
 	return 0;
 }

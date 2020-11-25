@@ -14,7 +14,7 @@ int conjure(object me, object target)
 	if( (int)me->query("atman") < 50 ) return notify_fail("你的灵力不够！\n");
 	me->add("atman", -50);
 	me->receive_damage("sen", 30);
-	message_vision( HIY "$N一手放在$n的天灵盖\上，一手贴在$n的後心，闭上眼睛缓缓低吟 ...\n" NOR,
+	message_vision( HIY "$N一手放在$n的天灵盖上，一手贴在$n的後心，闭上眼睛缓缓低吟 ...\n" NOR,
 		me, target );
 	if( random(me->query("max_atman")) > 100 )
 		target->revive();

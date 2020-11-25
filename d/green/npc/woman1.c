@@ -27,7 +27,7 @@ void create()
 void wield_weapon()
 {
     if (!query_temp("weapon")) {
-        command("say 没见识过我的菜刀神功\是吧, 接招!");
+        command("say 没见识过我的菜刀神功是吧, 接招!");
         command("wield knife");
         set("chat_chance_combat", 10);
     }
@@ -46,4 +46,3 @@ void converse_one()
         command("say 以大欺小啊你...");
     return;
 }
-

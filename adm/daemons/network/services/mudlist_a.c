@@ -39,7 +39,7 @@ int process_list(string idx, mapping info)
 {
 	string *inf, name, value;
 	int j;
-	mapping new, old;
+	mapping mud, old;
 
 	if(previous_object() != this_object()) return 0;
 
@@ -47,20 +47,20 @@ int process_list(string idx, mapping info)
 	inf = explode(info[idx], "|");
 
 	// build up the mapping for the individual muds
-	new = ([ ]);
+	mud = ([ ]);
 	j = sizeof(inf);
 	while (j--) if (sscanf(inf[j], "%s:%s", name, value) == 2)
-		new[name] = value;
-	if(!new["NAME"]) return 0;
+		mud[name] = value;
+	if(!mud["NAME"]) return 0;
 
 	// make sure the name is in the proper form
-	name = htonn( new["NAME"] );
+	name = htonn( mud["NAME"] );
 	while( name[strlen(name)-1] == '.' )
 		name = name[ 0..strlen(name)-2 ];
-	new["ALIAS"] = nntoh(new["NAME"]);
+	mud["ALIAS"] = nntoh(mud["NAME"]);
 
 	// already know about ourselves
-	if (new["NAME"] == Mud_name()) return 0;
+	if (mud["NAME"] == Mud_name()) return 0;
 
 	// if we have an entry, we update it, otherwise we add the new entry
 	old = DNS_MASTER->query_mud_info(name);
@@ -68,11 +68,11 @@ int process_list(string idx, mapping info)
 	// if it is a static mud we delete the entry
 	if(!DNS_MASTER->dns_mudp(name)) old = 0;
 
-	if (!old) DNS_MASTER->set_mud_info(name, new);
+	if (!old) DNS_MASTER->set_mud_info(name, mud);
 	else {
-		inf = keys(new);
+		inf = keys(mud);
 		j = sizeof(inf);
-		while (j--) old[inf[j]] = new[inf[j]];
+		while (j--) old[inf[j]] = mud[inf[j]];
 		DNS_MASTER->set_mud_info(name, old);
 	}
 	return 0;

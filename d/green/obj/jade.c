@@ -1,6 +1,6 @@
 inherit ITEM;
-inherit F_UNIQUE;
- 
+// inherit F_UNIQUE;
+
 void create()
 {
         set_name("玉佩", ({ "jade" }));

@@ -23,7 +23,7 @@ string *rnd_say = ({
         "为什麽我的精气神都不会恢复？",
         "有谁可以给我一些钱？",
         "这里的人都不理我！",
-        "可不可以告诉我哪里可以练功\？",
+        "可不可以告诉我哪里可以练功？",
         "hi",
         "hello",
         "hello",
@@ -159,21 +159,21 @@ varargs void drool(string msg, string who)
         if( (strsrch(msg, "为什麽") >= 0) ) {
                 if( sscanf(msg, "%*s为什麽%s", msg)==2 ) msg = "为什麽" + msg;
                 switch(random(8)) {
-                case 0: command("chat " + who + "，你是在问我吗？"); 
+                case 0: command("chat " + who + "，你是在问我吗？");
 			break;
-                case 1: command("chat 关於" + msg + " ... "); 
+                case 1: command("chat 关於" + msg + " ... ");
 			break;
-                case 2: command("chat 呃 ... "); drool(); 
+                case 2: command("chat 呃 ... "); drool();
 			break;
-                case 3: command("chat 这个问题嘛 ...."); 
+                case 3: command("chat 这个问题嘛 ....");
 			break;
-                case 4: command("chat " + who + "，知道这个问题的答案对你那麽重要吗？"); 
+                case 4: command("chat " + who + "，知道这个问题的答案对你那麽重要吗？");
 			break;
-                case 5: command("chat " + msg + "？"); 
+                case 5: command("chat " + msg + "？");
 			break;
-                case 6: command("chat " + who + "你能不能说清楚一点？"); 
+                case 6: command("chat " + who + "你能不能说清楚一点？");
 			break;
-                case 7: command("chat " + who + "，我不懂你问的问题"); 
+                case 7: command("chat " + who + "，我不懂你问的问题");
 			break;
                 	}
         }
@@ -185,25 +185,25 @@ varargs void drool(string msg, string who)
                 msg = replace_string(msg, "你", "我");
                 msg = replace_string(msg, "□", "我");
                 switch(random(10)) {
-                case 0: command("chat " + who + "，你是说" + msg + "吗？");      
+                case 0: command("chat " + who + "，你是说" + msg + "吗？");
 			break;
-                case 1: command("chat 你确定" + msg + "？");     
+                case 1: command("chat 你确定" + msg + "？");
 			break;
-                case 2: command("chat " + msg + "跟你有什麽关系？");     
+                case 2: command("chat " + msg + "跟你有什麽关系？");
 			break;
-                case 3: command("chat 嗯 ... " + who + "说得好"); 
+                case 3: command("chat 嗯 ... " + who + "说得好");
 			break;
-                case 4: command("chat " + who + "你为什麽对" + msg + "这麽有兴趣？"); 
+                case 4: command("chat " + who + "你为什麽对" + msg + "这麽有兴趣？");
 			break;
-                case 5: command("chat 为什麽你认为" + msg + "？"); 
+                case 5: command("chat 为什麽你认为" + msg + "？");
 			break;
-                case 6: command("chat 换个话题吧"); drool(); 
+                case 6: command("chat 换个话题吧"); drool();
 			break;
-                case 7: command("chat 才怪"); 
+                case 7: command("chat 才怪");
 			break;
-                case 8: command("chat 不一定吧？"); 
+                case 8: command("chat 不一定吧？");
 			break;
-                case 9: command("chat 有这个可能 ...."); 
+                case 9: command("chat 有这个可能 ....");
 			break;
                 }
         }
@@ -214,21 +214,21 @@ varargs void drool(string msg, string who)
                 switch(random(8)) {
                 case 0: command("chat 你是说" + msg + "吗？"); break;
                 case 1: command("chat 真的？" + msg + "？");     break;
-                case 2: command("chat 如果" + msg + "，我能帮你什麽忙吗？");     
+                case 2: command("chat 如果" + msg + "，我能帮你什麽忙吗？");
 			break;
                 case 3: command("hmm"); break;
                 case 4: command("chat 你认为" + msg + "？"); break;
                 case 5: command("chat 我有同感"); break;
-                case 6: command("chat 你说的「" + msg + "」我不能苟同"); 
+                case 6: command("chat 你说的「" + msg + "」我不能苟同");
 			break;
-                case 7: command("chat 有关「" + msg + "」的话题到此为止好吗？"); 
+                case 7: command("chat 有关「" + msg + "」的话题到此为止好吗？");
 			break;
                 }
         } else {
                 switch(random(20)) {
-                        case 0: command("chat 为什麽说" + msg + "?"); 
+                        case 0: command("chat 为什麽说" + msg + "?");
 				break;
-                        case 1: command("chat 「" + msg + "」是什麽意思？"); 
+                        case 1: command("chat 「" + msg + "」是什麽意思？");
 				break;
                         case 2: command("chat " + msg + "？"); break;
                         case 3: command("grin"); break;
@@ -239,7 +239,7 @@ varargs void drool(string msg, string who)
                         case 8: command("chat " + rnd_say[random(sizeof(rnd_say))]); break
 ;
                         case 9: command("chat 你怎麽知道" + msg + "?"); break;
-                        case 10: command("chat 刚刚" + who + "不是说了，" + msg); 
+                        case 10: command("chat 刚刚" + who + "不是说了，" + msg);
 				break;
                         case 11: command("chat 我当然知道，" + msg); break;
                         case 12: command("chat 然後呢？"); break;
@@ -260,4 +260,3 @@ int accept_object()
 {
         return 1;
 }
-

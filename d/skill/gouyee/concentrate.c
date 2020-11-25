@@ -11,7 +11,7 @@ int exert(object me, object target)
 	if( (int)me->query("force") < 30 )
 		return notify_fail("你的内力不够。\n");
 
-	
+
 	mana_gain =  10 + (int)me->query_skill("force")/5;
 	if( mana_gain + (int)me->query("mana") > (int)me->query("max_mana") )
 		me->set("mana", (int)me->query("max_mana"));
@@ -21,7 +21,7 @@ int exert(object me, object target)
 	me->receive_damage("sen", 10);
 
 	message_vision(
-		HIY "$N闭目凝神，用谷\衣心法的内力运转了一次「敛神诀」...\n"
+		HIY "$N闭目凝神，用谷衣心法的内力运转了一次「敛神诀」...\n"
 		"一股青气从$N身上散出，汇聚在$P的顶心，然后缓缓淡去。\n" NOR, me);
 
 	if( me->is_fighting() ) me->start_busy(1);

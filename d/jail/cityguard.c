@@ -8,8 +8,8 @@ void create()
 {
 	set_name("守城官兵", ({ "town guard", "guard" }) );
 	set("long",
-		"这是个正在这里站岗的守城官兵，虽然和许\多武林人物比起来，官兵\n"
-		"们的武功\实在稀松平常，但是他们是有组织、有纪律的战士，谁也不\n"
+		"这是个正在这里站岗的守城官兵，虽然和许多武林人物比起来，官兵\n"
+		"们的武功实在稀松平常，但是他们是有组织、有纪律的战士，谁也不\n"
 		"轻易地招惹他们。\n");
 
 	set("attitude", "peaceful");
@@ -44,4 +44,3 @@ void create()
 	carry_object("/obj/cloth")->wear();
 	carry_object("/obj/longsword")->wield();
 }
-

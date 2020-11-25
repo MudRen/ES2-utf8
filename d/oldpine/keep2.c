@@ -14,7 +14,7 @@ void create()
 在你的西边，东边越过一排木桩之后就是大厅。
 LONG
 	);
-	
+
 	set("exits", ([ /* sizeof() == 2 */
 		"west" : __DIR__"keep1",
 		"east" : __DIR__"keep3",
@@ -37,7 +37,7 @@ int valid_leave(object me, string exit)
 		return 1;
 
 	message("vision",
-		HIY "你听到你身后有几个声音大叫：把门关上！把门关上！一个也不许\让他们溜走！\n" NOR
+		HIY "你听到你身后有几个声音大叫：把门关上！把门关上！一个也不许让他们溜走！\n" NOR
 			"接著「轰」地一声，通往外面的大门已经被一块大石堵死了。\n",
 		this_object() );
 	delete("exits/west");
@@ -61,7 +61,7 @@ void reset()
 	set("exits/west", __DIR__"keep1" );
 	if( ob = find_object(__DIR__"keep1") )
 		ob->set("exits/east", __FILE__);
-	
+
 }
 
 void pipe_notify()

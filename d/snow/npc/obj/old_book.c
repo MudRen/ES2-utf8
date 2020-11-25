@@ -1,7 +1,7 @@
 // force_book.c
 
 inherit ITEM;
-inherit F_UNIQUE;
+// inherit F_UNIQUE;
 
 void create()
 {

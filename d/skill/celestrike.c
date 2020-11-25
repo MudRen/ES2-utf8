@@ -51,7 +51,7 @@ int valid_learn(object me)
 	if( me->query_temp("weapon") || me->query_temp("secondary_weapon") )
 		return notify_fail("练天邪神掌必须空手。\n");
 	if( (int)me->query_skill("celestial", 1) < 20 )
-		return notify_fail("你的天邪神功\火候不足，无法练天邪掌法。\n");
+		return notify_fail("你的天邪神功火候不足，无法练天邪掌法。\n");
 	if( (int)me->query("max_force") < 100 )
 		return notify_fail("你的内力太弱，无法练天邪掌法。\n");
 	return 1;

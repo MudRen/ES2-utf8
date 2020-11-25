@@ -3,6 +3,12 @@
 inherit ITEM;
 inherit F_FOOD;
 
+int eat_tonic()
+{
+	// todo 吃补品的实现
+	return 1;
+}
+
 void create()
 {
 	set_name("人参", ({ "ginseng" }) );

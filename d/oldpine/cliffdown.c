@@ -20,7 +20,7 @@ LONG
   "northeast" : __DIR__"pine7",
 ]));
 	set("item_desc", ([ /* sizeof() == 1 */
-  "cliff" : "你定下心神一看，其实这个悬崖没有想像中那么恐怖，也许\还
+  "cliff" : "你定下心神一看，其实这个悬崖没有想像中那么恐怖，也许还
 可以从这里爬下山涧，只是这世界上大概没有这种白痴愿意干
 这种傻事吧。
 ",
@@ -45,4 +45,3 @@ int do_climb(string arg)
 
         return 1;
 }
-

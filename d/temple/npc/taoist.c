@@ -7,7 +7,7 @@ void create()
      set("age", 36);
      set("class", "taoist");
      set("title", "茅山派第六代弟子");
-     set("long", "一位神色和平的中年道士, 他正在教授他的徒弟如何运功\导气\n");
+     set("long", "一位神色和平的中年道士, 他正在教授他的徒弟如何运功导气\n");
      set("attitude", "peaceful");
      set("combat_exp", 10000);
 
@@ -21,7 +21,7 @@ void create()
      set("max_mana", 500);
      set("atman", 300);
      set("max_atman", 300);
-     
+
      set_skill("unarmed", 30);
      set_skill("dodge", 30);
      set_skill("force", 30);

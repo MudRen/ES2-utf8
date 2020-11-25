@@ -19,7 +19,7 @@ LONG
 ]));
 
         set("item_desc", ([
-        "bookcase" : "看起来是个普普通通的柜子，或许\你可以search看看。\n",
+        "bookcase" : "看起来是个普普通通的柜子，或许你可以search看看。\n",
 	]) );
 
 	setup();
@@ -33,19 +33,18 @@ void init()
 int search_case(string arg)
 {
 	object me,obj;
-	
+
 	if ( !arg || (arg!="bookcase") ) return 0;
-	
+
 	me=this_player();
 	if ( query_temp("got") ) {
-		message_vision("$N在书柜找了找但没找到些什么\n",me); 
+		message_vision("$N在书柜找了找但没找到些什么\n",me);
 		return 1;
 	}
-	
+
 	message_vision("$N在书柜中找了到一个书匣\n",me);
 	obj=new(__DIR__"obj/slipcase");
 	obj->move(me);
 	set_temp("got", 1);
 	return 1;
-}	
-	
+}

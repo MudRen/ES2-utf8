@@ -11,7 +11,7 @@ void create()
 	else {
 		set("unit", "根");
 		set("material", "bamboo");
-		set("long", "一根约两寸多长的竹管，上面戳了三个小孔，也许\可以用来吹奏？\n");
+		set("long", "一根约两寸多长的竹管，上面戳了三个小孔，也许可以用来吹奏？\n");
 	}
 }
 

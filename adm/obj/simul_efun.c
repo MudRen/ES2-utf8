@@ -11,6 +11,11 @@
 // This must be after gender.c
 #include "/adm/simul_efun/message.c"
 
+int member_group(string a, string b)
+{
+	return a == b;
+}
+
 void create()
 {
 	seteuid(getuid());

@@ -22,7 +22,7 @@ int do_eat(string arg)
 	if( query("drink_func") )
 		if( (int)this_player()->query("water") >= (int)this_player()->max_water_capacity() )
 		return notify_fail("你肚子太涨了，再也撑不下任何东东了。!\n");
-	
+
 	this_player()->add("food", query("food_supply"));
 	if( query("drink_func") )
 		this_player()->add("water", query("water_supply"));
@@ -37,9 +37,8 @@ int do_eat(string arg)
 		message_vision("$N将剩下的" + name() + "吃得乾乾净净。\n", this_player());
 		if( !this_object()->finish_eat() )
 			destruct(this_object());
-	} else 
+	} else
 		message_vision("$N拿起" + name() + "咬了几口。\n", this_player());
 
 	return 1;
 }
-

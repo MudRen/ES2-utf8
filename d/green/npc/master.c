@@ -58,11 +58,10 @@ void create()
 
         map_skill("force", "wu-shun");
         map_skill("staff", "jingang-staff");
-	map_skill("spells",magic-array);
+	map_skill("spells", "magic-array");
 
         create_family("绝尘派", 0, "法师");
 
         setup();
 
 }
-

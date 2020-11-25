@@ -55,7 +55,7 @@ int look_room(object me, object env)
 		return 1;
 	}
 	str = sprintf( "\n▲ %s - %s\n    %s\n%s",
-		env->query("short"),
+		HIC + env->query("short") + NOR,
 		file_name(env),
 		// replace_string(env->query("long"), "\n", ""),
 		env->query("long"),

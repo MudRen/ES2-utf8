@@ -51,7 +51,7 @@ int valid_learn(object me)
 		return notify_fail("你的内力不够，没有办法练封山剑法。\n");
 
 	if( (string)me->query_skill_mapped("force")!= "fonxanforce")
-		return notify_fail("封山剑法必须配合封山派内功\才能练。\n");
+		return notify_fail("封山剑法必须配合封山派内功才能练。\n");
 
 	if( !(ob = me->query_temp("weapon"))
 	||	(string)ob->query("skill_type") != "sword" )
