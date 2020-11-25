@@ -80,7 +80,7 @@ void init()
 
 int do_accept(string arg)
 {
-        mapping guild;
+        
 
         if( arg== "test" ) {
                 say("\n於兰天武点了点头，说道：很好，这是第一招....\n\n");

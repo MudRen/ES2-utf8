@@ -7,7 +7,7 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	int gin_cost, atman_gain;
-	string magic_skill;
+ 
 
 	seteuid(getuid());
 	

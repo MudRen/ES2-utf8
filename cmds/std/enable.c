@@ -24,7 +24,7 @@ mapping valid_types = ([
 int main(object me, string arg)
 {
         mapping map;
-        string *types, *skill, ski, map_to;
+        string  *skill, ski, map_to;
         int i, modify;
 
         seteuid(getuid());

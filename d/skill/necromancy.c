@@ -32,7 +32,7 @@ int cast_spell(object me, string arg)
 int scratch_spell(object me, object sheet, string arg)
 {
 	string spl, trg;
-	object target;
+ 
 
 	if( !arg || sscanf(arg, "%s %s", spl, trg)!=2 ) {
 		spl = arg;

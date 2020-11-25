@@ -8,7 +8,7 @@ int main(object me, string arg)
 {
 	object ob, old_rec;
 	mapping family;
-	int i;
+ 
 
 	if( !arg ) return notify_fail("指令格式：recruit [cancel]|<对象>\n");
 

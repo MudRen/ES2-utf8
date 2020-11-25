@@ -59,10 +59,10 @@ int get_mudresource(string mud, string resource)
 
 void load_muds()
 {
-   int i;
-   string *line;
-   string md,ad;
-   int pt;
+   
+   
+   
+   
 
 // This stuff is commented out, prior to dropping support for TCP style
 // Intermud

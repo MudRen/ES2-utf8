@@ -6,8 +6,8 @@ inherit SSERVER;
 
 int exert(object me, object target)
 {
-	object *ob;
-	int i, skill, damage;
+ 
+ int  skill, damage;
 
 	if( !me->is_fighting() )
 		return notify_fail("「意寒睨」之术只能在战斗中使用。\n");
@@ -47,4 +47,3 @@ int exert(object me, object target)
 
 	return 1;
 }
-

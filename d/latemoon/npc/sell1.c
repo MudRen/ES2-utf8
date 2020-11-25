@@ -97,8 +97,8 @@ int do_list(string arg)
 int do_buy(string arg)
 {
        string name,unit,objname;
-       int amount,bv;
-       object obj, player,from_ob,who_ob;
+       int amount;
+       object obj, player,from_ob;
 
        amount = 10;
 

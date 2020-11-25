@@ -122,7 +122,7 @@ int do_coupletalk(string arg)
 string query_autoload()
 {
         object *list, me;
-        object couple_ob;
+        
         string target,cardname;
         int i;
 
@@ -141,9 +141,9 @@ string query_autoload()
 
 void autoload(string arg)
 {
-        int i;
+        
         object couple_ob;
-        object me;
+        
         string tmpstr, tmpstr1;
 
 //        me = this_player();
@@ -168,4 +168,3 @@ void autoload(string arg)
         set("name","你和"+arg+"的婚约");
 
 }
-

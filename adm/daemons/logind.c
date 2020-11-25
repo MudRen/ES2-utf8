@@ -306,7 +306,7 @@ object make_body(object ob)
 {
         string err;
         object user;
-        int n;
+        
 
         user = new(ob->query("body"));
         if(!user) {
@@ -348,7 +348,7 @@ private init_new_player(object user)
 
 varargs void enter_world(object ob, object user, int silent)
 {
-        object cloth, room;
+        object cloth;
         string startroom;
 
         user->set_temp("link_ob", ob);

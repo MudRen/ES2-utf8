@@ -31,7 +31,7 @@ int roping(string arg)
 {
         int i;
         int damage;
-        object obj;
+        
         object ob;
         object me;
         ob = this_player();

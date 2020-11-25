@@ -32,7 +32,7 @@ void init()
 
 int climbing(string arg)
 {
-        object obj;
+        
         object me;
         if(!arg || arg=="")
         {

@@ -205,7 +205,7 @@ parry_skill;
         int ap, dp, pp;
         int damage, damage_bonus, defense_factor;
         int wounded = 0;
-        int cost;
+        
 
         my = me->query_entire_dbase();
         your = victim->query_entire_dbase();
@@ -469,7 +469,7 @@ TYPE_RIPOSTE);
 //
 void fight(object me, object victim)
 {
-        object ob;
+        
 
         if( !living(me) ) return;
 
@@ -658,7 +658,7 @@ void killer_reward(object killer, object victim)
 
 // add in May 27, 1996 (1) -- 3 line
 	int bonus, exp, pot, score,factor,tfinished;
-        string test;
+        
         mapping quest;
 
         // Call the mudlib killer apply.

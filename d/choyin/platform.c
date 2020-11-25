@@ -64,7 +64,7 @@ void close_passage()
 
 int do_touch(string arg) 
 {
-       string dir;
+       
        object ob;
        if( !arg || arg=="" ) return 0;
 
@@ -80,5 +80,4 @@ int do_touch(string arg)
         return 1;
         }
 }
-
 

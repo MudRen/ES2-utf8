@@ -2,7 +2,7 @@ inherit NPC;
  
 void create()
 {
-        int has_game;
+        
         seteuid(getuid());
         set_name("老公公",({"old man", "oldman", "man"}));
         set("long", @TEXT

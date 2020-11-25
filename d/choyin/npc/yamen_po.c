@@ -96,7 +96,7 @@ void init()
 {
 object catchwho,you,*npc;
 object oldman,start_room;
-int i,tmp;
+int i;
 catchwho=query("CatchWho");
 you=this_player();
 if (query("status")=="patrol")
@@ -189,7 +189,7 @@ add_action("accept_bribery","bribe");
 void patrol()
 {
 int i,on_way;
-object *content,catchwho,start_room,crime,oldman;
+object *content,catchwho,start_room,crime;
 string *bigwayname,where,dir;
 bigwayname=keys(BigWay);
 where=file_name(environment());
@@ -292,9 +292,9 @@ return 1;
 
 void die()
 {
-object killer,ob,room;
-string file;
-int i;
+object killer,room;
+
+
 if (objectp(killer=query_temp("last_damage_from")))
         {
         room=find_object(query("startroom"));
@@ -327,7 +327,7 @@ int accept_bribery(string arg)
 {
 object money_ob,me,ob;
 string toid,money;
-int amount,bv1,i;
+int amount,bv1;
 me=this_player();
 if(!(me->query("being_caught"))) return 0;
 if (!arg||sscanf(arg,"%s with %d %s",toid,amount,money)!=3) return 0;
@@ -367,4 +367,3 @@ else
         }
 return 1;
 }
-

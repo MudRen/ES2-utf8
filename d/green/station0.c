@@ -33,7 +33,7 @@ int do_fillwater(string arg)
 {
         object *list, ob;
         int i, can_fillwater;
-        string dir;
+        
 
         if( !arg || arg=="" ) return 0;
 
@@ -66,4 +66,3 @@ int do_fillwater(string arg)
         }
         return 1;
 }
-

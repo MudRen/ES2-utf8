@@ -128,10 +128,12 @@ void log_error(string file, string message)
             if (wizardp(this_player(1)))
                 efun::write("编译时段错误：" + message + "\n");
         }
+        // 记录错误日志
         efun::write_file(home + "log_error", message);
     }
     else
     {
+        // 记录警告日志
         efun::write_file(home + "log", message);
     }
 }

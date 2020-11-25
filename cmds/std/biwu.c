@@ -69,7 +69,7 @@ int main(object me, string arg)
 void start_biwu(object me, object ob)
 {
         int mycor, obcor, mykee, obkee, myeff_kee, obeff_kee;
-        int turn, flag, i, j, k, l, flag1 = 0;
+        int turn, flag, i, flag1 = 0;
         float count, count_total = 0.0;
 
         if (!ob || ob == me)    return;
@@ -148,7 +148,6 @@ void start_biwu(object me, object ob)
 				for (l=0; l<50; l++);
  */       }
 }
-
 
 
 

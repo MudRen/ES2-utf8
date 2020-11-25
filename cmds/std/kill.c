@@ -7,7 +7,7 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	object obj;
-	string *killer, callname;
+ string  callname;
 
 	if( environment(me)->query("no_fight") )
 		return notify_fail("这里不准战斗。\n");

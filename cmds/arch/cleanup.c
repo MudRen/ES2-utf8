@@ -4,7 +4,7 @@ inherit F_CLEAN_UP;
 
 int main(object me, string str)
 {
-	object ob, where, *ob_list;
+ object  *ob_list;
 	int old_size, i;
 
 	if (!str) return notify_fail("指令格式：cleanup <档名>\n"); 
@@ -32,4 +32,3 @@ HELP
 	);
 	return 1;
 }
-

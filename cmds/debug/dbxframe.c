@@ -33,7 +33,7 @@ main(string str)
 {
   mapping frame;
   int num;
-  int i;
+  
 
   if (!str || sscanf(str, "%d", num)==0) {
     write("dbxframe <number>\n");

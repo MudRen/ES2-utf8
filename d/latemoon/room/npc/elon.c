@@ -58,7 +58,7 @@ void init()
 
 int do_accept(string arg)
 {
-        mapping guild;
+        
 
         if( arg== "test" ) {
 		if ( this_player()->query("gender") != "女性" ) {

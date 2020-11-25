@@ -4,9 +4,9 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-	object ob, *inv;
+ object ob;
 	string str;
-	int i;
+ 
 
 	if( !arg ) return notify_fail("你要脱掉什麽？\n");
 

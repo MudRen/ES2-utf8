@@ -19,7 +19,7 @@ void init()
 
 int do_drink(string arg)
 {
-	object ob;
+ 
 
 	if( !arg || arg != "cola") 
 		return notify_fail("你要喝甚么呢? \n");

@@ -94,7 +94,7 @@ string make_reply()
 
 void relay_channel(object ob, string channel, string msg)
 {
-        string who, phrase;
+        string who;
 
         if( !userp(ob) || (channel != "chat") ) return;
         who = ob->query("name");
@@ -266,4 +266,3 @@ int accept_object()
 {
         return 1;
 }
-

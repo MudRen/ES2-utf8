@@ -89,7 +89,7 @@ destruct(this_object());
 
 void die()
 {
-        int i;
+        
         object killer;
 
         if(objectp(killer = query_temp("last_damage_from")))

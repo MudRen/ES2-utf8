@@ -26,7 +26,7 @@ void create()
 
 string ask_youngman()
 {
-	object bag, me;
+ object bag;
 
 //	if( !me = query_temp("last_asker") ) return "您说的是 ... 游尚书游大人府上的游 ... 游相公吗？\n";
 
@@ -35,4 +35,3 @@ string ask_youngman()
         return "小女子有一事相求 ... 请您将这个交给游 ... 游公子。\n";
         delete("inquiry/游晋");
 }
-

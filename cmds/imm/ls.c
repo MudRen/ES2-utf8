@@ -6,7 +6,7 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-	int mark_loaded;
+ 
 	int i, j, w, col;
 	string dir;
 	mixed *file;

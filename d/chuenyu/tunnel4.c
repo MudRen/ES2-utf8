@@ -70,7 +70,7 @@ void close_passage()
 
 int do_push(string arg)
 {
-        string dir;
+        
         
         if( !arg || arg=="" ) 
         {

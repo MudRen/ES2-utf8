@@ -83,7 +83,7 @@ int do_turn(string arg)
 
 int do_press(string arg)
 {
-    string dir;
+    
     object room;
 
     if( !arg || arg=="" ) return 0;

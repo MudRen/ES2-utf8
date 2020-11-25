@@ -26,7 +26,7 @@ void create() {
 
 void query_userid() {
    string socket, address;
-   int port, line, tmp;
+   int port, line;
 
    //	Check to make sure we have pulled the local port from
    //	the mud's name server.

@@ -15,7 +15,7 @@ void create() { seteuid(getuid()); }
 
 int main(object me, string arg)
 {
-        string skill, teacher, master;
+        string skill, teacher;
         object ob, *list , couple_ob;
         int master_skill, my_skill, gin_cost;
 	string target, cardname;

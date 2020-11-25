@@ -340,8 +340,8 @@ void do_pings()
 void set_mud_info(string name, mapping junk)
 {
     string tcp;
-    int new_mud;
-    int svc;
+    
+    
 
     if( !(ACCESS_CHECK(previous_object()))
     &&	file_name(previous_object())[0..strlen(AUX_PATH) - 1] != AUX_PATH)
@@ -596,8 +596,8 @@ string get_host_name(string name)
 
 mapping query_mud_info(string name)
 {
-    mapping m;
-    string str;
+    
+    
 
     name = htonn(name);
     if(name == mud_nname())
@@ -718,7 +718,7 @@ void dump_svc_keys()
 
 void set_monitor(object ob)
 {
-    string euid;
+    
 
 /*
     euid = geteuid(previous_object());
@@ -768,7 +768,7 @@ aux_warning(string warning)
 private void
 log(string entry)
 {
-  string temp;
+  
   log_file(MY_LOG_FILE, sprintf("%s: %s\n", ctime(time()), entry));
 }
 
@@ -786,9 +786,9 @@ void resolve_callback(string address, string my_ip, int key)
 // ----------------------------------------------------------------------------
 void create()
 {
-    mapping static_db;
-    int i;
-    string *strs;
+    
+    
+    
 
     restore_euid();
 

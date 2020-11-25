@@ -122,7 +122,7 @@ int recruit_apprentice(object ob)
 void use_poison()
 {
         object *enemy, ob;
-        string msg;
+        
 
         enemy = query_enemy();
         if( sizeof(enemy) ) ob = enemy[random(sizeof(enemy))];

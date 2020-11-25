@@ -7,9 +7,9 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	object ob, old_app;
-	mapping family, skills;
-	int i;
-	string *skname;
+ mapping family;
+ 
+ 
 
 	if( !arg ) return notify_fail("指令格式：apprentice [cancel]|<对象>\n");
 
