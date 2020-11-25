@@ -83,7 +83,9 @@ string query_save_file() { return DICTIONARY; }
 // This is called by to_chinese() simul_efun
 string chinese(string str)
 {
-    if( !undefinedp( dict[str] ) ) return dict[str];
+    // debug_message(sprintf("%O", dict));
+    if (!undefinedp(dict[str]))
+        return dict[str];
     else return str;
 }
 

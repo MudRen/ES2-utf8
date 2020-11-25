@@ -449,20 +449,6 @@ int check_legal_id(string id)
 
 int check_legal_name(string name)
 {
-        int i;
-
-        i = strwidth(name);
-
-        if( (i < 2) || (i > 12 ) ) {
-                write("对不起，你的中文名字必须是 1 到 6 个中文字。\n");
-                return 0;
-        }
-        while(i--) {
-                if( name[i]<=' ' ) {
-                        write("对不起，你的中文名字不能用控制字元。\n");
-                        return 0;
-                }
-        }
         if( !is_chinese(name) ) {
                 write("对不起，请您用「中文」取名字。\n");
                 return 0;

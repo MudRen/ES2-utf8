@@ -1,0 +1,18 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "editor.formatOnType": true,
+    "files.autoGuessEncoding": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.renderWhitespace": "all",
+    "files.eol": "\n",
+    "files.associations": {
+        "*.c": "c",
+        "typeinfo": "c",
+        "bit": "c",
+        "cmath": "c",
+        "complex": "c",
+        "cstdlib": "c"
+    }
+}
